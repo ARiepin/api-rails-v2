@@ -1,23 +1,21 @@
 module V1
 	class SongsController < ApplicationController
-	  # GET /songs
-	  # GET /songs.json
+		doorkeeper_for :all
+
 	  def index
 	    @songs = Song.all
 
 	    render json: @songs
 	  end
 
-	  # GET /songs/1
-	  # GET /songs/1.json
+
 	  def show
 	    @song = Song.find(params[:id])
 
 	    render json: @song
 	  end
 
-	  # POST /songs
-	  # POST /songs.json
+
 	  def create
 	    @song = Song.new(song_params)
 
@@ -28,8 +26,7 @@ module V1
 	    end
 	  end
 
-	  # PATCH/PUT /songs/1
-	  # PATCH/PUT /songs/1.json
+
 	  def update
 	    @song = Song.find(params[:id])
 
@@ -40,8 +37,7 @@ module V1
 	    end
 	  end
 
-	  # DELETE /songs/1
-	  # DELETE /songs/1.json
+
 	  def destroy
 	    @song = Song.find(params[:id])
 	    @song.destroy
